@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp</title>
+    <link rel="stylesheet" href="static/stylechatapp.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+ 
+
+ 
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+
+
+
+    <script src="static/appjs.js"></script>
+
+</head>
+
+<body>
+
+    <!--Se creo el encabezado con las instrucciones en JS para ocultar el HEADER, solo que se vuelve a mostrar 
+        hasta que se regresa a top el scroll  -->
+    <div class="headtop" >
+        <div class="header" > 
+            <div class="appname" onclick="duplicate()" >ChatApp</div>
+            <div class="space"></div>
+            <div class="search">
+                <img src="static/images/magnifying-glass-1083378_640.png" height="25px" width="25px" alt="Buscar">
+            </div>
+            <div class="submenu">
+                <img src="static/images/menu-145771_640.png" height="23px" width="23px" alt="Menu">
+            </div>
+        </div>
+    </div>
+
+    <!--Diseño del Encabezado de nuestra aplicación
+    --------------------------------------------------------------------------------->
+
+    <div  class="menu">
+        <div class="camara">
+            <img src="static/images/camera-1085705_1280.png" height="23px" width="23px" alt="Cam">
+        </div>
+        <div id="bottom-line" class="chats" data-view="0">CHATS</div>
+        <div id="bottom-line" class="estados" data-view="1">ESTADOS</div>
+        <div id="bottom-line" class="llamadas" data-view="2">LLAMADAS</div>
+    </div>
+    <!--Diseño del Menu de la aplicación en que se encuentran las pestañas de 
+        CHATS, ESTADOS y LLAMADAS, ya con los identificadores data-view para ser utilizados
+        en las funciones de clase y sirvan como identificadores.
+    -----------------------------------------------------------------------------------------
+    Se crearon Class Copy en cada uno de las secciones, para ser utilizadas en la funcion que activara
+    El Tab blanco de cada una de las secciones-->
+   
+    <!--<div style="display:block" class="copy">
+        <div class="row-0"> 
+            <div class="renglon">
+                <div class="icon">
+                    <img src="static/images/e-mail-295978_640.png" height="30px" width="30 px" alt="Avatar">
+                </div>
+                <div class="content">
+                    <div class="top-row">
+                        <div class="chatname">ESTOMA</div>
+                        <div class="timedate">8:20 p.m.</div>
+                    </div>
+                    <div class="bottom-row">
+                        <div class="contacto">Samuel: Buen día</div>
+                        <div class="status">1</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+
+    <!--Diseño del contenido de la sección de CHATS
+    --------------------------------------------------------------------------------->
+
+    
+    <!------------------------------------------------------------------------------
+    Diseño del contenido de la sección de ESTADOS.
+    Utilizo la instrucción de "style="display:none" para ucultar la clase del 
+    contenido del renglon rowEstados, que corresponde a la sección de ESTADOS.-->
+    
+    <!--<div style="display:none" class="copy">
+        <div class="row-1"> 
+            <div  class="rowEstados">
+                <div class="icEstado">
+                    <img src="static/images/girl-2696947_640.jpg" height="30px" width="30px" alt="Perfil">
+                </div>
+                <div class="contEdo">
+                    <div class="miEstado">Mi Estado</div>
+                    <div class="dateEstados">Hoy 2:00 p.m.</div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+
+    <!------------------------------------------------------------------------------
+    Diseño del contenido de la sección de LLAMADAS, ocurre el mismo error de ESTADOS
+    en el contenido, si no uso la instrucción STYLE se acomoda en CHATS -->
+
+    <!--<div style="display:none" class="copy">
+        <div  class="row-2"> 
+            <div  class="rowCall">
+                <div class="icLlamadas">
+                    <img src="static/images/boy-1299608_640.png" height="30px" width="30px" alt="Perfil">
+                </div>
+                <div class="contCall">
+                    <div class="nombreCall">Jesus</div>
+                    <div class="dateCall">Hoy 2:00 p.m.</div>
+                </div>
+                <div class="tipoCall">
+                    <img src="static/images/video-1364122_640.png" height="30px" width="30px" alt="Tipo">    
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <form id="send-message">
+        <div class="form">
+            <div class="to">
+                <select name="to" id="to">
+                    <option value="" disabled selected hidden>Destinatario:</option>
+                    <option value="Erick">Erick</option>
+                    <option value="Irma">Irma</option>
+                    <option value="Hugo">Hugo</option>
+                    <option value="Alex">Alex</option>
+                    <option value="Joel">Joel</option>
+                    <option value="Jesus">Jesus</option>
+                    <option value="Tomas">Tomas</option>
+                    <option value="Edgardo">Edgardo</option>
+                    <option value="Alberto">Alberto</option>
+                </select>
+            </div>
+            <div class="message">
+                <input type="text" placeholder="Mensaje ...">
+            </div>
+            <div class="submit">
+                <button type="submit">Enviar</button>
+            </div>
+        </div>
+    </form>
+
+    <div style="display:block" class="principal">
+        <div class="row-0"> 
+            <div class="row">
+                <div class="content">
+                    <div class="top-row">
+                        <div class="chatname"></div>
+                        <div class="timedate"></div>
+                    </div>
+                    <div class="bottom-row">
+                        <div class="contactname"></div>
+                        <div class="status"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: white;
+}
+
+.header {
+    display: flex;
+    background-color: green;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+
+}
+
+#navbar {
+    position :fixed;
+    top: 0;
+    transition: top 0.3s;
+}
+
+#navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+
+#navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.appname {
+    flex: 7 1 auto;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.space {
+    flex: 7 1 auto;
+}
+
+.search {
+    flex: 1 1 auto;
+}
+
+.submenu {
+    flex: 1 1 auto;
+    padding-right: 10px;
+}
+
+.menu {
+    display: flex;
+    background-color: green;
+    color: white;
+    /*padding-top: 5px;
+    padding-bottom: 5px;*/
+    justify-content: space-between;
+    text-align: center;
+    position: sticky;
+    top: 0;
+
+}
+
+.camara {
+    flex: 1 1 auto;
+}
+
+.chats {
+    flex: 3 1 auto;
+    border-bottom: 3px solid white;
+    transition-duration: .4s;
+}
+
+.estados {
+    flex: 3 1 auto;
+    transition-duration: .4s;
+}
+
+.llamadas {
+    flex: 3 1 auto;
+    transition-duration: .4s;
+}
+
+.chats:hover, .estados:hover, .llamadas:hover {
+    background-color: lightgreen;
+}
+
+.renglon, .rowEstados, .rowCall, .row {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.icon, .icEstado, .icLlamadas {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.icLlamadas {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.content, .contEdo, .contCall {
+    flex: 5 1 auto;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid grey;
+    padding-bottom: 3px;
+}
+
+.top-row, .bottom-row {
+    display: flex;
+}
+
+
+.chatname, .contacto {
+    flex: 5 1 auto;
+}
+
+.chatname, .miEstado, .nombreCall {
+    font-weight: bold;
+}
+
+.timedate  {
+    flex: 1 1 auto;
+    text-align: right;
+    padding-right: 3px;
+}
+
+.tipoCall {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 3px;
+    border-bottom: 1px solid grey;
+}
+
+.status {
+    border: 1px solid green;
+    border-radius: 100px;
+    padding: 1px;
+    background-color: green;
+    color: white;
+    margin-right: 5px;
+    width: 20px;
+    text-align: center;
+    font-weight: bold;
+    
+}
+

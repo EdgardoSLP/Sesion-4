@@ -58,21 +58,45 @@ firebase.analytics();
     }
 
 function insert(){
-    const fr = Edgardo;
-    var para = "";
-    var mensaje = "";
-    var fecha = new Date();
-    document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+    var referencia = databaseServices.ref('chat');
+        const fr = Edgardo;
+        var para = "";
+        var mensaje = "";
+        var fecha = new Date();
+        document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+    
+        para = document.getElementById("to");
+        mensaje = document.getElementById("messagge");
 
-    para = document.getElementById("to");
-    mensaje = document.getElementById("messagge");
+        referencia.set({
+            from:fr,
+            message:mensaje,
+            timestamp:fecha,
+            to:para,
+        });
+    
+        var nuevo = new Object();
+        nuevo.from = fr;
+        nuevo.message = mensaje;
+        nuevo.to = para;
+    
+    
+        /*const fr = Edgardo;
+        var para = "";
+        var mensaje = "";
+        var fecha = new Date();
+        document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+    
+        para = document.getElementById("to");
+        mensaje = document.getElementById("messagge");
+    
+        var nuevo = new Object();
+        nuevo.from = fr;
+        nuevo.message = mensaje;
+        nuevo.to = para;*/
+    
+        renderChat(nuevo);
 
-    var nuevo = new Object();
-    nuevo.from = fr;
-    nuevo.message = mensaje;
-    nuevo.to = para;
-
-    renderChat(nuevo);
 
 }
 

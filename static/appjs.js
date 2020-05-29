@@ -58,27 +58,37 @@ firebase.analytics();
     }
 
 function insert(){
-    var referencia = databaseServices.ref('chat');
-        const fr = Edgardo;
+    var referencia = db.collection('chat');
+    //alert("si entro");
+        const fr = "Edgardo";
         var para = "";
         var mensaje = "";
-        var fecha = new Date();
-        document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-    
-        para = document.getElementById("to");
-        mensaje = document.getElementById("messagge");
+        var f = new Date();
+        //document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
-        referencia.set({
+        para = document.getElementById("to").value;
+        mensaje = document.getElementById("message").value;
+        
+        referencia.add({
             from:fr,
             message:mensaje,
-            timestamp:fecha,
+            timestamp:f,
             to:para,
+        }) .then(function(docRef) {
+            console.log("Document successfully written!");
+            //document.querySelector('.rowc').appendChild(divrow3);
+            db.collection("chat").doc(docRef.id).get().then(function(doc){
+                //console.log(doc.id);
+                renderChat(doc)});
+        })
+        .catch(function(error) {
+            console.error("Error writing document: ", error);
         });
     
-        var nuevo = new Object();
+        /*var nuevo = new Object();
         nuevo.from = fr;
         nuevo.message = mensaje;
-        nuevo.to = para;
+        nuevo.to = para;*/
     
     
         /*const fr = Edgardo;
@@ -95,7 +105,7 @@ function insert(){
         nuevo.message = mensaje;
         nuevo.to = para;*/
     
-        renderChat(nuevo);
+        //renderChat(nuevo);
 
 
 }
@@ -112,7 +122,7 @@ ocultar el ENCABEZADO al avanzar el contenido de la seccion hacia arriba,
 y de mostrar el contenido del ENCABEZADO, al momento de avanzar 
 contenido hacia abajo. SI REALIZA EL EFECTO, PERO ME DESACOMODA TODO*/
 
-let ubicacionPrincipal = window.pageYOffset;
+/*let ubicacionPrincipal = window.pageYOffset;
 window.onscroll = function() {
     let desp_actual = window.pageYOffset;
     if (ubicacionPrincipal >= desp_actual){
@@ -122,7 +132,7 @@ window.onscroll = function() {
         document.getElementById('navbar').style.top = '-100px'; //
     }
     ubicacionPrincipal = desp_actual;
-}
+}*/
 
 /* -------------------------------------------------------------------------
 
@@ -190,7 +200,7 @@ function duplicate(){
    };
    });
 
-   document.querySelectorAll('submit').onclick=function(){
+   document.querySelectorAll('.enviar').onclick=function(){
        insert();
    }
 

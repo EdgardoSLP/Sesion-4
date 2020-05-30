@@ -94,7 +94,7 @@ body {
     background-color: lightgreen;
 }
 
-.renglon, .rowEstados, .rowCall, .row {
+.renglon, .rowEstados, .rowCall, .row, .form {
     display: flex;
     align-items: center;
     align-content: center;
@@ -125,7 +125,7 @@ body {
 }
 
 
-.chatname, .contacto {
+.chatname, .contacto, .contactname {
     flex: 5 1 auto;
 }
 
@@ -157,5 +157,14 @@ body {
     text-align: center;
     font-weight: bold;
     
+}
+
+.enviar {
+    text-align: center;
+    background-color: rgb(199, 199, 199);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 3px;
+    padding-bottom: 3px;
 }
 

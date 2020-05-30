@@ -85,7 +85,58 @@
     --------------------------------------------------------------------------------->
 
     
-    <!------------------------------------------------------------------------------
+
+
+    <form id="send-message">
+        <div class="form">
+            <div class="to">
+                <select name="to" id="to" onchange="filtrar()">
+                    <option value="" disabled selected hidden>Destinatario:</option>
+                    <option value="Erick">Erick</option>
+                    <option value="Irma">Irma</option>
+                    <option value="Hugo">Hugo</option>
+                    <option value="Alex">Alex</option>
+                    <option value="Joel">Joel</option>
+                    <option value="Jesus">Jesus</option>
+                    <option value="Tomas">Tomas</option>
+                    <option value="Edgardo">Edgardo</option>
+                    <option value="Alberto">Alberto</option>
+                </select>
+            </div>
+            <div class="message">
+                <input id="message" type="text" placeholder="Mensaje ...">
+            </div>
+            <div class="enviar">
+                <div onclick="insert()">Enviar</div>
+            </div>
+        </div>
+    </form>
+
+    
+
+    <div style="display:block" class="principal">
+        <div class="row-0"> 
+            <!--<div class="row">
+                <div class="content">
+                    <div class="top-row">
+                        <div class="chatname"></div>
+                        <div class="timedate"></div>
+                    </div>
+                    <div class="bottom-row">
+                        <div class="contactname">
+                            <div ondblclick="eliminar()"></div>
+                        </div>
+                        <div class="trash">
+                            <img src="static/images/garbage-1708863_640.png" height="30px" width="30 px" alt="Avatar">
+                        </div>
+                        <div class="status"></div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+
+        <!------------------------------------------------------------------------------
     Diseño del contenido de la sección de ESTADOS.
     Utilizo la instrucción de "style="display:none" para ucultar la clase del 
     contenido del renglon rowEstados, que corresponde a la sección de ESTADOS.-->
@@ -125,48 +176,6 @@
             </div>
         </div>
     </div>-->
-
-    <form id="send-message">
-        <div class="form">
-            <div class="to">
-                <select name="to" id="to">
-                    <option value="" disabled selected hidden>Destinatario:</option>
-                    <option value="Erick">Erick</option>
-                    <option value="Irma">Irma</option>
-                    <option value="Hugo">Hugo</option>
-                    <option value="Alex">Alex</option>
-                    <option value="Joel">Joel</option>
-                    <option value="Jesus">Jesus</option>
-                    <option value="Tomas">Tomas</option>
-                    <option value="Edgardo">Edgardo</option>
-                    <option value="Alberto">Alberto</option>
-                </select>
-            </div>
-            <div class="message">
-                <input id="message" type="text" placeholder="Mensaje ...">
-            </div>
-            <div class="enviar">
-                <div onclick="insert()">Enviar</div>
-            </div>
-        </div>
-    </form>
-
-    <div style="display:block" class="principal">
-        <div class="row-0"> 
-            <div class="row">
-                <div class="content">
-                    <div class="top-row">
-                        <div class="chatname"></div>
-                        <div class="timedate"></div>
-                    </div>
-                    <div class="bottom-row">
-                        <div class="contactname"></div>
-                        <div class="status"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
   
 </body>
